@@ -1,0 +1,10 @@
+{
+  "name": "hello-node",
+  "description": "Simple Hello World Node.js sam",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Yun Xu",
+  "scripts": {
+    "start": "node demo.js"
+  }
+}
