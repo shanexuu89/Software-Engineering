@@ -1,6 +1,6 @@
 {
   "name": "hello-node",
-  "description": "Simple Hello World Node.js sam",
+  "description": "Simple Hello World Node.js",
   "version": "0.0.1",
   "private": true,
   "author": "Yun Xu",
