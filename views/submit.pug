@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+ head
+  style.
+       account {
+            font-family: Verdana;
+            font-size: 10pt;
+            text-align: right;
+        }
+        cssClassExample { 
+          font-family: Tahoma, Geneva, sans-serif;
+          text-align:center; 
+        }
+       
+  title SEER
+body
+   account
+   p
+   a(href='/views/index.pug') index |
+   a(href='/views/login.pug')  login |
+   a(href='/views/Signup.pug')  Signup |
+   cssClassExample
+    h1(style="text-align:middle;") Submit
+    form(action="" method="POST")
+    p Name:
+    input(type="text" name="Name" placeholder="")
+    p Contentupload:
+    input(type="text" name="Content upload" placeholder="")
+    p submit:
+    input(type="submit" value='submit')
