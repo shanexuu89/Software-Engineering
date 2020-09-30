@@ -1,0 +1,27 @@
+ style.
+       account {
+            font-family: Verdana;
+            font-size: 10pt;
+            text-align: right;
+        }
+        cssClassExample { 
+          font-family: Tahoma, Geneva, sans-serif;
+          text-align:center; 
+        }
+       
+  title SEER
+body
+   account
+    p
+     a(href='/index.pug') index |
+     a(href='/Signup.pug')  Signup |
+     a(href='/')  Submit
+   cssClassExample
+    h1(style="text-align:middle;") Sign up
+    form(action="" method="POST") 
+      p  Email: 
+      input(type="text" name="email" placeholder="")
+      p  Password: 
+      input(type="text" name="password" placeholder="")
+      p Login:
+       input(type="submit" value='Login')
