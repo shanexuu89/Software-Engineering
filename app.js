@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require ("mysql");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +12,21 @@ var signupRouter = require('./routes/signup');
 var submitRouter = require('./routes/submit');
 var app = express();
 
+//connection to database
+var db = mysql.createConnection({
+host: 'us-cdbr-east-02.cleardb.com',
+user: 'bc04aa6c090060',
+password: '2097f7d0',
+database: 'heroku_563076973ffff09'
+});
+
+db.connect ((error) =>{
+  if(error){
+    console.log(error)
+  } else {
+    console.log("connected...")
+  }
+})
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
