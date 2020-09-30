@@ -1,7 +1,4 @@
-doctype html
-html(lang='en')
- head
-  style.
+ style.
        account {
             font-family: Verdana;
             font-size: 10pt;
@@ -17,18 +14,14 @@ body
    account
     p
      a(href='index.pug') index |
-     a(href='login.pug')  login |
+     a(href='Signup.pug')  Signup |
      a(href='/')  Submit
    cssClassExample
     h1(style="text-align:middle;") Sign up
-    form(action="" method="POST")
-    p FirstName: 
-     input(type="text" name="firstname" placeholder="")
-     p LastName: 
-      input(type="text" name="lastname" placeholder="") 
+    form(action="" method="POST") 
       p  Email: 
       input(type="text" name="email" placeholder="")
       p  Password: 
       input(type="text" name="password" placeholder="")
-      p Create:
-       input(type="submit" value='Create')
+      p Login:
+       input(type="submit" value='Login')
