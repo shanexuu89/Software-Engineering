@@ -5,12 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require ("mysql");
 
+/*
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var submitRouter = require('./routes/submit');
+*/
 var app = express();
+
 
 /*connection to database
 *login info are all in plain text for ez debugging
@@ -41,8 +44,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //routes
 app.use('/',require('./routes/pages'));
+app.use('/auth',require('./routes/auth'));
 /*
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
