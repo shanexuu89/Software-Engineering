@@ -21,9 +21,9 @@ body
      a(href='/submit')  Submit
    cssClassExample
     h1(style="text-align:middle;") Log in
-    form(action="" method="POST") 
-    p Email: 
-      input(type="text" name="email" placeholder="")
+    form(action="/auth/login", method="POST") 
+      p Email: 
+       input(type="text" name="email" placeholder="")
       p Password: 
        input(type="text" name="password" placeholder="")
       p

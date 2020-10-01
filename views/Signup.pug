@@ -21,11 +21,11 @@ body
      a(href='/submit')  Submit
    cssClassExample
     h1(style="text-align:middle;") Sign up
-    form(action="/auth/register" method="POST")
-    p FirstName: 
-      input(type="text" name="firstname" placeholder="")
-      p LastName: 
-        input(type="text" name="lastname" placeholder="") 
+    form(action="/auth/signup", method="POST")
+      p User Name: 
+        input(type="text" name="username" placeholder="")
+      p Full Name: 
+        input(type="text" name="fullname" placeholder="") 
       p Email: 
           input(type="text" name="email" placeholder="")
       p Password: 
@@ -38,4 +38,6 @@ body
         input(type="text" name="gender" placeholder="")
       p
         input(type="submit" value='Create')
+
+     
         
