@@ -34,11 +34,11 @@ exports.signup = (req,res) => {
    
     db.query('INSERT INTO user SET ?', {username: username, fullname: fullname, email: email, password: password, affiliation: affiliation, age: age, gender: gender});
     res.send ("Form submitted");
-}
+};
 exports.submit = (req,res) => {
     console.log(req.body);
-    const { author, title, content_upload, volume, number, pages, year, month, rating, submitter, status } = req.body;
+    const { author, title, journal, volume, number, pages, year, month, rating, submitter, status } = req.body;
 
-    db.query('INSERT INTO article SET ?', {author: author, title: title, content_upload: content_upload, volume: volume, number: number, pages: pages, year: year, month: month, rating: rating, submitter: submitter, status: status});
+    db.query('INSERT INTO article SET ?', {author: author, title: title, journal: journal, volume: volume, number: number, pages: pages, year: year, month: month, rating: rating, submitter: submitter, status: status});
     res.send ("Form submitted");
-}
+};
