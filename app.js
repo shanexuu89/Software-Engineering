@@ -12,7 +12,11 @@ var signupRouter = require('./routes/signup');
 var submitRouter = require('./routes/submit');
 var app = express();
 
-//connection to database
+/*connection to database
+*login info are all in plain text for ez debugging
+*and for other members 
+*will be changed to encrpetd file later 
+*/
 var db = mysql.createConnection({
 host: 'us-cdbr-east-02.cleardb.com',
 user: 'bc04aa6c090060',
@@ -37,11 +41,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//routes
+app.use('/',require('./routes/pages'));
+/*
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/submit', submitRouter);
+*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
