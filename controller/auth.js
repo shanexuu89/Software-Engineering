@@ -42,3 +42,20 @@ exports.submit = (req,res) => {
     db.query('INSERT INTO article SET ?', {author: author, title: title, journal: journal, volume: volume, number: number, pages: pages, year: year, month: month, rating: rating, submitter: submitter, status: status});
     res.send ("Form submitted");
 };
+
+exports.index = (req,res) => {
+    console.log(req.body);
+    const { title } = req.body;
+    db.query(`select * from article where author like '%` +title + `%' or  title like '%` + title + `%' or journal like '%` + title + `%'`, (error, result, field) => {
+        if(error){
+            console.log(error);
+        }
+        Object.keys(result).forEach(function(key) {
+            var row = result[key];
+            res.send("Author: "+row.author + "<br>Title: " + row.title + "<br>Journal: "+ row.journal+"<br>Volume: "+ row.volume+"<br>Number: "+ row.number+"<br>Pages: "+ row.pages+"<br>Year: "+ row.year+"<br>Month: "+ row.month+"<br>Ratting: "+ row.ratting+"<br>Submitter: "+ row.submitter + "<br>Status: "+ row.status);
+           
+            
+        });
+    });
+
+};

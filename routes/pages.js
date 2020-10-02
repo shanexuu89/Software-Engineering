@@ -18,8 +18,8 @@ router.get('/submit', function(req, res, next) {
     res.render('submit', { title: 'Express' });
   });
 
-router.get('/search', function(req, res, next) {
-    res.render('search', { title: 'Express' });
+router.get('/index', function(req, res, next) {
+    res.render('index', { title: 'Express' });
   });
 
 module.exports = router;
