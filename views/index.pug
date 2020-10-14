@@ -3,12 +3,12 @@ html(lang='en')
  head
   style.
        account {
-            font-family: Verdana;
+            font-family: BioRhyme;
             font-size: 10pt;
             text-align: right;
         }
         cssClassExample { 
-          font-family: Tahoma, Geneva, sans-serif;
+          font-family: BioRhyme, sans-serif;
           text-align:center; 
         }
        
@@ -16,11 +16,11 @@ html(lang='en')
 body
    account
     p
-     a(href='/signup') Signup |
-     a(href='/login')  Login |
-     a(href='/submit')  Submit
+     a(href='/signup') SIGNUP &nbsp;&nbsp;
+     a(href='/login')  LOGIN   &nbsp;&nbsp;
+     a(href='/submit')  SUBMIT
    cssClassExample
-    h1(style="text-align:middle;") SEER
+    h1(style="text-align:middle; font-family: Copperplate; color:green;font-size: 100pt;") SEER
     form(action="/auth/index", method="POST")
      p Description: 
       input(type="text" name="title")

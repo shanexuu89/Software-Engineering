@@ -49,13 +49,33 @@ exports.index = (req,res) => {
     db.query(`select * from article where author like '%` +title + `%' or  title like '%` + title + `%' or journal like '%` + title + `%'`, (error, result, field) => {
         if(error){
             console.log(error);
+            return;
         }
+        /*
         Object.keys(result).forEach(function(key) {
             var row = result[key];
-            res.send("Author: "+row.author + "<br>Title: " + row.title + "<br>Journal: "+ row.journal+"<br>Volume: "+ row.volume+"<br>Number: "+ row.number+"<br>Pages: "+ row.pages+"<br>Year: "+ row.year+"<br>Month: "+ row.month+"<br>Ratting: "+ row.ratting+"<br>Submitter: "+ row.submitter + "<br>Status: "+ row.status);
-           
-            
+            res.send("Author: "+row.author + "<br>Title: " + row.title + "<br>Journal: "+ row.journal+"<br>Volume: "+ row.volume+"<br>Number: "+ row.number+"<br>Pages: "+ row.pages+"<br>Year: "+ row.year+"<br>Month: "+ row.month+"<br>Ratting: "+ row.ratting+"<br>Submitter: "+ row.submitter + "<br>Status: "+ row.status);           
         });
-    });
 
+    let h='<h1 style="background:green;color:whitesmoke;margin:20px;boeder:20px solid green;">Searching results<h1>';
+    let str='<table style="margin-left:20px">';
+    let row='';
+    for (let j=0;j<result.recordset.length;j++){
+        row=row + '<tr>' + '<td style="width:150px;">' + result.recordset[j].title;
+    }
+    str=str + row + '</table>';
+       res.send(h+str);
+       db.close();
+       */
+    
+
+      var table =''; //to store html table
+      
+      //create html table with data from res.
+      for(var i=0; i<result.length; i++){
+        table +='<tr><td>'+ result[i].author +'</td><td>'+ result[i].title +'</td><td>'+ result[i].journal +'</td><td>'+ result[i].volume +'</td><td>'+ result[i].number +'</td><td>'+ result[i].pages +'</td><td>'+ result[i].year +'</td><td>'+ result[i].month +'</td><td>'+ result[i].ratting +'</td><td>'+ result[i].submitter + '</td><td>'+ result[i].status + '</td></tr>';
+      }
+      table ='<table border="1"><tr><th>Author</th><th>Title</th><th>Journal</th><th>Volume</th><th>Number</th><th>Pages</th><th>Year</th><th>Month</th><th>Ratting</th><th>Submitter</th><th>Status</th></tr>'+ table +'</table>';
+      res.send("<h1 style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;'>SEER</h1>"+table);
+    });
 };
