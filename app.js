@@ -70,9 +70,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+/*
 module.exports = app;
 
 app.listen(3000, () => {
   console.log('Listening on port 3000...');
 });
+*/
