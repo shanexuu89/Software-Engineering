@@ -15,7 +15,7 @@ let pool = mysql.createPool(db);
         }
  });
 
-exports.login = async (rew, res) => {
+exports.login = async (req, res) => {
    try {
        const { email, password} = req.body;
 
@@ -24,6 +24,25 @@ exports.login = async (rew, res) => {
        console.log(error);
    }
 };
+exports.database = (req, res) => {
+    console.log(req.body);
+    db.query(`select * from article`, (error, result, field) => {
+        if(error){
+            console.log(error);
+            return;
+        }
+    
+      var table =''; //to store html table
+      //create html table with data from res.
+      for(var i=0; i<result.length; i++){
+        table +='<tr><td>'+ result[i].author +'</td><td>'+ result[i].title +'</td><td>'+ result[i].journal +'</td><td>'+ result[i].volume +'</td><td>'+ result[i].number +'</td><td>'+ result[i].pages +'</td><td>'+ result[i].year +'</td><td>'+ result[i].month +'</td><td>'+ result[i].ratting +'</td><td>'+ result[i].submitter + '</td><td>'+ result[i].status + '</td></tr>';
+      }
+      table ='<table border="1"><tr><th>Author</th><th>Title</th><th>Journal</th><th>Volume</th><th>Number</th><th>Pages</th><th>Year</th><th>Month</th><th>Ratting</th><th>Submitter</th><th>Status</th></tr>'+ table +'</table>';
+      res.send("<h1 style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;'>SEER</h1>"+table+"<a href='/index'>back to home</a>");
+    });
+    
+ };
+
 exports.signup = (req,res) => {
     console.log(req.body);
     const { username, fullname, email, password, affiliation, age, gender } = req.body;
@@ -42,14 +61,14 @@ exports.signup = (req,res) => {
     */ 
    
     db.query('INSERT INTO user SET ?', {username: username, fullname: fullname, email: email, password: password, affiliation: affiliation, age: age, gender: gender});
-    res.send ("Form submitted");
+    res.redirect('/login');
 };
 exports.submit = (req,res) => {
     console.log(req.body);
     const { author, title, journal, volume, number, pages, year, month, rating, submitter, status } = req.body;
 
     db.query('INSERT INTO article SET ?', {author: author, title: title, journal: journal, volume: volume, number: number, pages: pages, year: year, month: month, rating: rating, submitter: submitter, status: status});
-    res.send ("Form submitted");
+    res.send ("Form submitted</br>" + "<a href='/index'>back to home</a>");
 };
 
 exports.index = (req,res) => {

@@ -21,5 +21,8 @@ router.get('/submit', function(req, res, next) {
 router.get('/index', function(req, res, next) {
     res.render('index', { title: 'Express' });
   });
+router.get('/database', function(req, res, next) {
+    res.render('database', { title: 'Express' });
+  });
 
 module.exports = router;
