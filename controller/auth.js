@@ -6,15 +6,14 @@ var db = mysql.createConnection({
     password: '2097f7d0',
     database: 'heroku_563076973ffff09'
     });
-
-    let pool = mysql.createPool(db);
-
+var moment = require('moment');
+let pool = mysql.createPool(db);
     pool.on('connection', function (_conn) {
         if (_conn) {
             logger.info('Connected the database via threadId %d!!', _conn.threadId);
             _conn.query('SET SESSION auto_increment_increment=1');
         }
-    });
+ });
 
 exports.login = async (rew, res) => {
    try {
@@ -55,8 +54,14 @@ exports.submit = (req,res) => {
 
 exports.index = (req,res) => {
     console.log(req.body);
-    const { title } = req.body;
-    db.query(`select * from article where author like '%` +title + `%' or  title like '%` + title + `%' or journal like '%` + title + `%'`, (error, result, field) => {
+    const { title, datestart, dateend} = req.body;
+    var sdate = new Date(datestart);
+    var edate = new Date(dateend);
+
+    var syear = moment(sdate).format('YYYY');
+    var eyear = moment(edate).format('YYYY');
+    
+    db.query(`select * from article where author like '%` +title + `%' or  title like '%` + title + `%' or journal like '%` + title + `%' AND year BETWEEN ? AND ?`,[syear, eyear], (error, result, field) => {
         if(error){
             console.log(error);
             return;
@@ -71,4 +76,5 @@ exports.index = (req,res) => {
       table ='<table border="1"><tr><th>Author</th><th>Title</th><th>Journal</th><th>Volume</th><th>Number</th><th>Pages</th><th>Year</th><th>Month</th><th>Ratting</th><th>Submitter</th><th>Status</th></tr>'+ table +'</table>';
       res.send("<h1 style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;'>SEER</h1>"+table);
     });
+    
 };
