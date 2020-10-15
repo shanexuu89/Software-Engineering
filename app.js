@@ -73,7 +73,7 @@ pool.on('connection', function (_conn) {
     }
 });
 
-//globel error handler
+//global error handler
 process.on('uncaughtException', (err) => {
   console.log('whoops! there was an error', err.stack);
 });
