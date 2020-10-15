@@ -3,12 +3,12 @@ html(lang='en')
  head
   style.
        account {
-            font-family: Verdana;
+            font-family: BioRhyme;
             font-size: 10pt;
             text-align: right;
         }
         cssClassExample { 
-          font-family: Tahoma, Geneva, sans-serif;
+          font-family: BioRhyme, Geneva, sans-serif;
           text-align:center; 
         }
        
@@ -16,11 +16,11 @@ html(lang='en')
 body
    account
     p
-     a(href='/') index |
-     a(href='/login')  login |
-     a(href='/signup')  Signup |
+     a(href='/') HOME |
+     a(href='/login')  LOGIN |
+     a(href='/signup')  SINGUP 
    cssClassExample
-    h1(style="text-align:middle;") Submit
+    h1(style="text-align:middle;") SUBMIT
     form(action="/auth/submit" method="POST")
      p Author:
        input(type="text" name="author" placeholder="")
