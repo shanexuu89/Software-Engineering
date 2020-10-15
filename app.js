@@ -58,7 +58,9 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3000, () => {
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log('Listening on port 3000...');
 });
 
