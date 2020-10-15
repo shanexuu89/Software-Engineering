@@ -61,7 +61,7 @@ exports.index = (req,res) => {
     var syear = moment(sdate).format('YYYY');
     var eyear = moment(edate).format('YYYY');
     
-    db.query(`select * from article where author like '%` +title + `%' or  title like '%` + title + `%' or journal like '%` + title + `%' AND year BETWEEN ? AND ?`,[syear, eyear], (error, result, field) => {
+    db.query(`select * from article where title like '%` +title + `%' AND year BETWEEN ? AND ?`,[syear, eyear], (error, result, field) => {
         if(error){
             console.log(error);
             return;
@@ -74,7 +74,7 @@ exports.index = (req,res) => {
         table +='<tr><td>'+ result[i].author +'</td><td>'+ result[i].title +'</td><td>'+ result[i].journal +'</td><td>'+ result[i].volume +'</td><td>'+ result[i].number +'</td><td>'+ result[i].pages +'</td><td>'+ result[i].year +'</td><td>'+ result[i].month +'</td><td>'+ result[i].ratting +'</td><td>'+ result[i].submitter + '</td><td>'+ result[i].status + '</td></tr>';
       }
       table ='<table border="1"><tr><th>Author</th><th>Title</th><th>Journal</th><th>Volume</th><th>Number</th><th>Pages</th><th>Year</th><th>Month</th><th>Ratting</th><th>Submitter</th><th>Status</th></tr>'+ table +'</table>';
-      res.send("<h1 style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;'>SEER</h1>"+table);
+      res.send("<h1 style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;'>SEER</h1>"+table+"<a href='/index'>back to home</a>");
     });
     
 };
