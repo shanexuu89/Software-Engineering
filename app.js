@@ -72,3 +72,8 @@ pool.on('connection', function (_conn) {
         _conn.query('SET SESSION auto_increment_increment=1');
     }
 });
+
+//globel error handler
+process.on('uncaughtException', (err) => {
+  console.log('whoops! there was an error', err.stack);
+});
