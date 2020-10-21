@@ -58,11 +58,16 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+app.get('/',function (req,res){
+  res.send('server up and running')
+})
 const host = '0.0.0.0';
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+app.listen(port, function()  {
   console.log('Listening on port 3000...');
 });
+
+
 
 let pool = mysql.createPool(db);
 
