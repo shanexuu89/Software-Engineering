@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "software-engineering",
   "version": "0.0.0",
   "private": true,
@@ -14,31 +13,4 @@
     "morgan": "~1.9.1",
     "pug": "^3.0.0"
   }
-=======
-    "name": "software-engineering",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "nodemon app.js",
-        "test": "mocha"
-    },
-    "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "cookie-parser": "~1.4.4",
-        "date-utils": "^1.2.21",
-        "debug": "~2.6.9",
-        "express": "~4.16.1",
-        "http-errors": "~1.6.3",
-        "moment": "^2.29.1",
-        "morgan": "~1.9.1",
-        "mysql": "^2.18.1",
-        "nodemon": "^2.0.4",
-        "pug": "^3.0.0"
-    },
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "chai-http": "^4.3.0",
-        "mocha": "^8.2.0"
-    }
->>>>>>> master
 }

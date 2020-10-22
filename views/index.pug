@@ -1,40 +1,5 @@
-<<<<<<< HEAD
 extends layout
 
 block content
   h1 'Seer Search page'
   
-=======
-doctype html
-html(lang='en')
- head
-  style.
-       account {
-            font-family: BioRhyme;
-            font-size: 10pt;
-            text-align: right;
-        }
-        cssClassExample { 
-          font-family: BioRhyme, sans-serif;
-          text-align:center; 
-        }
-       
-  title SEER
-body
-   account
-    p
-     a(href='/signup') SIGNUP |
-     a(href='/login')  LOGIN |
-     a(href='/submit')  SUBMIT
-   cssClassExample
-    h1(style="text-align:middle; font-family: Copperplate; color:green;font-size: 100pt;") SEER
-    form(action="/auth/index", method="POST")
-     p Description: 
-      input(type="text" name="title" required)
-     p Date Range from: 
-      input(type="date" name="datestart") 
-      a  to 
-      input(type="date" name="dateend")
-      p
-       input(type="submit" value='Search')
->>>>>>> master
