@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  style.
        account {
             font-family: Verdana;
@@ -6,11 +7,26 @@
         }
         cssClassExample { 
           font-family: Tahoma, Geneva, sans-serif;
+=======
+doctype html
+html(lang='en')
+ head
+  style.
+       account {
+            font-family: BioRhyme;
+            font-size: 10pt;
+            text-align: right;
+            margin: 20px;
+        }
+        cssClassExample { 
+          font-family: BioRhyme, Geneva, sans-serif;
+>>>>>>> master
           text-align:center; 
         }
        
   title SEER
 body
+<<<<<<< HEAD
    account
     p
      a(href='/index.pug') index |
@@ -24,4 +40,20 @@ body
       p  Password: 
       input(type="text" name="password" placeholder="")
       p Login:
+=======
+   a(style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;') Seer
+   account
+    p
+     a(href='/') HOME |
+     a(href='/signup')  SINGUP |
+     a(href='/submit')  SUBMIT
+   cssClassExample
+    h1(style="text-align:middle;") SIGN IN
+    form(action="/auth/login", method="POST") 
+      p Email: 
+       input(type="text" name="email" placeholder="")
+      p Password: 
+       input(type="text" name="password" placeholder="")
+      p
+>>>>>>> master
        input(type="submit" value='Login')

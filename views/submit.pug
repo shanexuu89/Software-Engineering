@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+ head
+  style.
+       account {
+            font-family: BioRhyme;
+            font-size: 10pt;
+            text-align: right;
+        }
+        cssClassExample { 
+          font-family: BioRhyme, Geneva, sans-serif;
+          text-align:center; 
+        }
+       
+  title SEER
+body
+   account
+    p
+     a(href='/') HOME |
+     a(href='/login')  LOGIN |
+     a(href='/signup')  SINGUP 
+   cssClassExample
+    h1(style="text-align:middle;") SUBMIT
+    form(action="/auth/submit" method="POST")
+     p Author:
+       input(type="text" name="author" placeholder="")
+     p Title:
+       input(type="text" name="title" placeholder="")
+     p Content upload:
+        input(type="text" name="journal" placeholder="")
+     p Volume:
+        input(type="text" name="volume" placeholder="")
+     p Number:
+        input(type="text" name="number" placeholder="")
+     p Pages:
+        input(type="text" name="pages" placeholder="")
+     p Year:
+        input(type="text" name="year" placeholder="")
+     p Month:
+        input(type="text" name="month" placeholder="")
+     p Rating:
+        input(type="text" name="rating" placeholder="")
+     p Submitter:
+        input(type="text" name="submitter" placeholder="")
+     p Status:
+        input(type="text" name="status" placeholder="")
+     p 
+        input(type="submit" value='submit')

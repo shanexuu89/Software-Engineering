@@ -1,0 +1,45 @@
+doctype html
+html(lang='en')
+ head
+  style.
+       account {
+            font-family: BioRhyme;
+            font-size: 10pt;
+            text-align: right;
+            margin: 20px;
+        }
+        cssClassExample { 
+          font-family: BioRhyme, Geneva, sans-serif;
+          text-align:center; 
+        }
+       
+  title SEER
+body
+   a(style='text-align:left; font-family: Copperplate; color:green;font-size: 20pt;') Seer
+   account
+    p
+     a(href='/') HOME |
+     a(href='/login')  LOGIN |
+     a(href='/submit')  SUBMIT
+   cssClassExample
+    h1(style="text-align:middle;") Sign up
+    form(action="/auth/signup", method="POST")
+      p User Name: 
+        input(type="text" name="username" placeholder="")
+      p Full Name: 
+        input(type="text" name="fullname" placeholder="") 
+      p Email: 
+          input(type="text" name="email" placeholder="")
+      p Password: 
+        input(type="text" name="password" placeholder="")
+      p Affiliation: 
+        input(type="text" name="affiliation" placeholder="")
+      p Age: 
+        input(type="text" name="age" placeholder="")
+      p Gender: 
+        input(type="text" name="gender" placeholder="")
+      p
+        input(type="submit" value='Create')
+
+     
+        
